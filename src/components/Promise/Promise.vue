@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { promiseMachine } from "./promise-machine";
+import { promiseMachine } from "./promise.machine";
 import { useMachine } from "@xstate/vue";
 
 const { state, send } = useMachine(promiseMachine);

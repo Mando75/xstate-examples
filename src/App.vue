@@ -3,13 +3,15 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Promise from "./components/Promise/Promise.vue";
 import Home from "./components/Home.vue";
+import Form from './components/Form/Form.vue';
 import { computed, ref } from "vue";
 
-type Page = typeof Home | typeof Promise;
+type Page = typeof Home | typeof Promise | typeof Form;
 
 const routes: Record<string, Page> = {
   "/": Home,
   "/promise": Promise,
+  "/form": Form
 };
 
 const currentPath = ref(window.location.hash);
@@ -26,6 +28,7 @@ const currentView = computed(
   <div id="links">
     <a href="#/">Home</a>
     <a href="#/promise">Promise</a>
+    <a href="#/form">Form</a>
   </div>
   <component :is="currentView" />
 </template>
